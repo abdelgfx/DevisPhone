@@ -22,6 +22,9 @@ public class Product {
 	@ManyToOne
 	@Column(name = "brand")
 	private Brand brand;
+	
+	@ManyToOne
+	private String user;
 
 	public Product(String image) {
 		super();
