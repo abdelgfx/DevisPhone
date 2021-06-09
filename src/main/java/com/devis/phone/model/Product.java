@@ -17,6 +17,9 @@ public class Product {
 
 	@ManyToOne
 	private Brand brand;
+	
+	@ManyToOne
+	private String user;
 
 	public Product(int idProduct, String image) {
 		super();
