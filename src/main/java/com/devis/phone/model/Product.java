@@ -1,7 +1,9 @@
 package com.devis.phone.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -11,17 +13,19 @@ import javax.persistence.Table;
 
 public class Product {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idProduct")
 	private int idProduct;
-	private String image;
+	@Column(name = "imagePath")
+	private String imagePath;
 
 	@ManyToOne
+	@Column(name = "brand")
 	private Brand brand;
 
-	public Product(int idProduct, String image) {
+	public Product(String image) {
 		super();
-		this.idProduct = idProduct;
-		this.image = image;
+		this.imagePath = image;
 	}
 
 	public Product() {
@@ -32,15 +36,11 @@ public class Product {
 		return idProduct;
 	}
 
-	public void setIdProduct(int idProduct) {
-		this.idProduct = idProduct;
-	}
-
 	public String getImage() {
-		return image;
+		return imagePath;
 	}
 
 	public void setImage(String image) {
-		this.image = image;
+		this.imagePath = image;
 	}
 }

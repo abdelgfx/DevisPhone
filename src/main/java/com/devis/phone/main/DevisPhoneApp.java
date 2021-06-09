@@ -1,4 +1,4 @@
-package com.devis.phone;
+package com.devis.phone.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
