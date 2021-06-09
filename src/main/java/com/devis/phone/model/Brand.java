@@ -15,14 +15,14 @@ import javax.persistence.Table;
 
 public class Brand {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idBrand")
-	private int idBrand;
-	@Column(name = "brandName")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long idBrand;
+	
+	@Column(name = "brand_name")
 	private String brandName;
 
 	@OneToMany(mappedBy = "brand")
-	@Column(name = "products")
 	private List<Product> products;
 
 	public Brand() {
@@ -34,7 +34,7 @@ public class Brand {
 		this.brandName = brandName;
 	}
 
-	public int getIdBrand() {
+	public Long getIdBrand() {
 		return idBrand;
 	}
 

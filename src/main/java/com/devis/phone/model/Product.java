@@ -13,18 +13,18 @@ import javax.persistence.Table;
 
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idProduct")
-	private int idProduct;
-	@Column(name = "imagePath")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long idProduct;
+	
+	@Column(name = "image_path")
 	private String imagePath;
 
 	@ManyToOne
-	@Column(name = "brand")
 	private Brand brand;
 	
 	@ManyToOne
-	private String user;
+	private User user;
 
 	public Product(String image) {
 		super();
@@ -35,7 +35,7 @@ public class Product {
 		super();
 	}
 
-	public int getIdProduct() {
+	public Long getIdProduct() {
 		return idProduct;
 	}
 

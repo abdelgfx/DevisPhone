@@ -12,6 +12,7 @@ import com.devis.phone.repository.ProductRepository;
 
 @RestController
 @RequestMapping("/api/v1/")
+
 public class ProductController {
 	@Autowired
 	private ProductRepository productRepository;

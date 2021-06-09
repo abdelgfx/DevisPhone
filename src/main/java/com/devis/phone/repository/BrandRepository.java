@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.devis.phone.model.Brand;
 
 @Repository
+
 public interface BrandRepository extends JpaRepository<Brand, Long> {
 
 }
