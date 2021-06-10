@@ -1,7 +1,9 @@
 package com.devis.phone.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -12,40 +14,44 @@ import javax.persistence.Table;
 
 public class Product {
 	@Id
+	<<<<<<< HEAD
 	@GeneratedValue
 	@ManyToMany
 	private int idProduct;
 	private String image;
+=======
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long idProduct;
+	
+	@Column(name = "image_path")
+	private String imagePath;
+>>>>>>> 64b377e48f65aad128753b5bc9b7e80e8d825260
 
 	@ManyToOne
 	private Brand brand;
 	
 	@ManyToOne
-	private String user;
+	private User user;
 
-	public Product(int idProduct, String image) {
+	public Product(String image) {
 		super();
-		this.idProduct = idProduct;
-		this.image = image;
+		this.imagePath = image;
 	}
 
 	public Product() {
 		super();
 	}
 
-	public int getIdProduct() {
+	public Long getIdProduct() {
 		return idProduct;
 	}
 
-	public void setIdProduct(int idProduct) {
-		this.idProduct = idProduct;
-	}
-
 	public String getImage() {
-		return image;
+		return imagePath;
 	}
 
 	public void setImage(String image) {
-		this.image = image;
+		this.imagePath = image;
 	}
 }
