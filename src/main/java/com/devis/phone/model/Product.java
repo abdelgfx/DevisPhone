@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue
-	
+	@ManyToMany
 	private int idProduct;
 	private String image;
 
