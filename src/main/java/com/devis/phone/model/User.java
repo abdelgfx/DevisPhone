@@ -34,6 +34,20 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
+	public User(String firstName, String lastName, String email, String password) {
+		super();
+
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -68,20 +82,6 @@ public class User {
 
 	public Long getIdUser() {
 		return idUser;
-	}
-
-	public User(String firstName, String lastName, String email, String password) {
-		super();
-
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-	}
-
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 }

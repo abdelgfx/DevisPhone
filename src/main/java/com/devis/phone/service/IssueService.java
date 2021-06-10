@@ -18,6 +18,11 @@ public class IssueService {
 		issueRepository.save(issue);
 	}
 
+	public void addAllIssues(List<Issue> issues) {
+		for (Issue issue : issues)
+			issueRepository.save(issue);
+	}
+
 	public Issue getIssue(Long id) {
 		return issueRepository.getById(id);
 	}
