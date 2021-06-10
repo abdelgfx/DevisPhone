@@ -14,23 +14,16 @@ import javax.persistence.Table;
 
 public class Product {
 	@Id
-	<<<<<<< HEAD
-	@GeneratedValue
-	@ManyToMany
-	private int idProduct;
-	private String image;
-=======
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long idProduct;
-	
+
 	@Column(name = "image_path")
 	private String imagePath;
->>>>>>> 64b377e48f65aad128753b5bc9b7e80e8d825260
 
 	@ManyToOne
 	private Brand brand;
-	
+
 	@ManyToOne
 	private User user;
 

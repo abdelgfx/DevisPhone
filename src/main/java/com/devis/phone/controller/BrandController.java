@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devis.phone.model.Brand;
-import com.devis.phone.repository.BrandRepository;
+import com.devis.phone.service.BrandService;
 
 @RestController
 @RequestMapping("/api/v1/")
 
 public class BrandController {
 	@Autowired
-	private BrandRepository brandRepository;
+	private BrandService brandService;
 
 	@GetMapping("/brands")
 	public List<Brand> getAllBrands() {
-		return brandRepository.findAll();
+		return brandService.getAllBrands();
 	}
 }

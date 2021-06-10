@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devis.phone.model.Product;
-import com.devis.phone.repository.ProductRepository;
+import com.devis.phone.service.ProductService;
 
 @RestController
 @RequestMapping("/api/v1/")
 
 public class ProductController {
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductService productService;
 
 	@GetMapping("/products")
 	public List<Product> getAllProducts() {
-		return productRepository.findAll();
+		return productService.getAllProducts();
 	}
 }
