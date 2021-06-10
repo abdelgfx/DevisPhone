@@ -3,6 +3,7 @@ package com.devis.phone.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue
+	@ManyToMany
 	private int idProduct;
 	private String image;
 
