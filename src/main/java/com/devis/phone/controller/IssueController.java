@@ -9,27 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devis.phone.main.Data;
-import com.devis.phone.model.Brand;
-import com.devis.phone.service.BrandService;
+import com.devis.phone.model.Issue;
+import com.devis.phone.service.IssueService;
 
 @RestController
 @RequestMapping("/api/v1/")
 
-public class BrandController {
+public class IssueController {
 	@Autowired
-	private BrandService brandService;
+	private IssueService issueService;
 	private Data data;
 
-	@GetMapping("/brands")
-	public List<Brand> getAllBrands() {
-		data = new Data();
-		return brandService.getAllBrands();
+	@GetMapping("/issues")
+	public List<Issue> getAllIssues() {
+		return issueService.getAllIssues();
 	}
 
-	@PostMapping("/brands/addAll")
-	public void setAllBrands() {
+	@PostMapping("/issues/addAll")
+	public void setAllIssues() {
 		data = new Data(10, 5, 3, 1);
-		List<Brand> testBrands = data.generateBrands();
-		brandService.addAllBrands(testBrands);
+		List<Issue> testIssues = data.generateIssues();
+		issueService.addAllIssues(testIssues);
 	}
 }

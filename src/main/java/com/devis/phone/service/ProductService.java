@@ -19,6 +19,11 @@ public class ProductService {
 		productRepository.save(product);
 	}
 
+	public void addAllProducts(List<Product> products) {
+		for (Product product : products)
+			productRepository.save(product);
+	}
+
 	public Product getProduct(Long id) {
 		return productRepository.getById(id);
 	}
