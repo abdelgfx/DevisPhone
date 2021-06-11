@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.devis.phone.model.Brand;
-import com.devis.phone.model.Product;
 import com.devis.phone.repository.BrandRepository;
 
 @Service
