@@ -22,7 +22,7 @@ public class Issue implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id",nullable = false)
 	private long idIssue;
 
 	@Column(name = "issue_name")

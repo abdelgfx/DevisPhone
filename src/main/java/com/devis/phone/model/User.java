@@ -20,7 +20,7 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id",nullable = false)
 	private Long idUser;
 
 	@OneToMany(mappedBy = "user")
@@ -35,7 +35,7 @@ public class User implements Serializable {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "password")
+	@Column(name = "password",nullable = false)
 	private String password;
 
 	public User(String firstName, String lastName, String email, String password) {

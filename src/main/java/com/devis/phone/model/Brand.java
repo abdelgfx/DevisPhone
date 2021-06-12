@@ -20,7 +20,7 @@ public class Brand implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id", nullable = false)
 	private Long idBrand;
 
 	@Column(name = "brand_name")
