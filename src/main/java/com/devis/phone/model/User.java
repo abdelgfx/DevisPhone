@@ -3,6 +3,7 @@ package com.devis.phone.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class User implements Serializable {
 	@Column(name = "id")
 	private Long idUser;
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Product> products;
 
 	@Column(name = "first_name")

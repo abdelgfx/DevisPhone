@@ -31,10 +31,10 @@ public class Product implements Serializable {
 	@Column(name = "image_path")
 	private String imagePath;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Brand brand;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
@@ -53,11 +53,35 @@ public class Product implements Serializable {
 		return idProduct;
 	}
 
-	public String getImage() {
+	public String getImagePath() {
 		return imagePath;
 	}
 
-	public void setImage(String image) {
-		this.imagePath = image;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Set<ProductIssue> getProductIssues() {
+		return productIssues;
+	}
+
+	public void setProductIssues(Set<ProductIssue> productIssues) {
+		this.productIssues = productIssues;
 	}
 }

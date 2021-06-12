@@ -8,20 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devis.phone.model.User;
-import com.devis.phone.repository.UserRepository;
-
-
+import com.devis.phone.service.UserService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/")
 public class UserController {
 	@Autowired
-	private UserRepository userRepository;
-	@GetMapping("users")
+	private UserService userService;
+
+	@GetMapping("/users")
 	public List<User> getAllUsers() {
-		return userRepository.findAll();
+		return userService.getAllUsers();
 	}
-	 
-	 
-	
+
 }

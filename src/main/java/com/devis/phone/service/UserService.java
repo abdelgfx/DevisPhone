@@ -2,6 +2,7 @@ package com.devis.phone.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.devis.phone.model.User;
@@ -9,9 +10,11 @@ import com.devis.phone.repository.UserRepository;
 
 @Service
 public class UserService {
+
+	@Autowired
 	private UserRepository userRepository;
 
-	public void addBrand(User user) {
+	public void addUser(User user) {
 		userRepository.save(user);
 	}
 
@@ -20,15 +23,15 @@ public class UserService {
 			userRepository.save(brand);
 	}
 
-	public User getBrand(Long id) {
+	public User getUser(Long id) {
 		return userRepository.getById(id);
 	}
 
-	public List<User> getAllBrands() {
+	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
-	public void deleteuser(Long id) {
+	public void deleteUser(Long id) {
 		userRepository.deleteById(id);
 	}
 
