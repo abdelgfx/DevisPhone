@@ -24,7 +24,7 @@ public class BrandService {
 	}
 
 	public Brand getBrand(Long id) {
-		return brandRepository.getById(id);
+		return brandRepository.findById(id).get();
 	}
 
 	public List<Brand> getAllBrands() {

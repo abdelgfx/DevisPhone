@@ -2,6 +2,7 @@ package com.devis.phone.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,11 +24,11 @@ public class ProductIssue implements Serializable {
 	@Column(name = "id")
 	private Long productIssueId;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	private Product product;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "issue_id")
 	private Issue issue;
 
@@ -42,7 +43,6 @@ public class ProductIssue implements Serializable {
 
 	public ProductIssue() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Product getProduct() {

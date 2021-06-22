@@ -1,12 +1,19 @@
-package com.devis.phone.main;
+package com.devis.phone.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.devis.phone.model.Brand;
 import com.devis.phone.model.Issue;
 import com.devis.phone.model.Product;
+import com.devis.phone.model.ProductIssue;
 import com.devis.phone.model.User;
+import com.devis.phone.service.BrandService;
+import com.devis.phone.service.IssueService;
+import com.devis.phone.service.ProductIssueService;
+import com.devis.phone.service.ProductService;
+import com.devis.phone.service.UserService;
 
 public class Data {
 
@@ -24,18 +31,51 @@ public class Data {
 		super();
 	}
 
-	public List<Product> generateProducts() {
+	public void generateProducts(BrandService brandService, UserService userService, IssueService issueService,
+			ProductService productService, ProductIssueService productIssueService) {
+
+		Random random = new Random();
+		int randomBrandIndex, randomIssueIndex;
+		int maxBrands, maxIssues, min = 0;
+		int numberOfProducts = this.numberOfProducts, productNumber = 1;
+		double randomPrice, minPrice = 449.99, maxPrice = 1129.99;
+
 		List<Product> products = new ArrayList<Product>();
-		int numberOfProducts = this.numberOfProducts;
-		int productNumber = 1;
+		List<Brand> brands = generateBrands();
+		List<User> users = generateUsers();
+		List<Issue> issues = generateIssues();
+
+		maxBrands = brands.size() - 1;
+
+		brandService.addAllBrands(brands);
+		userService.addAllUser(users);
+		issueService.addAllIssues(issues);
 
 		while (numberOfProducts > 0) {
-			products.add(new Product("https://image-path-" + productNumber + ".com"));
+			randomBrandIndex = random.nextInt((maxBrands - min) + 1) + min;
+
+			Product p = new Product("https://image-path-" + productNumber + ".com");
+
+			p.setBrand(brands.get(randomBrandIndex));
+			products.add(p);
+
 			numberOfProducts--;
 			productNumber++;
 		}
 
-		return products;
+		maxIssues = issues.size() - 1;
+
+		productService.addAllProducts(products);
+
+		for (int i = 0; i < products.size(); i++) {
+			randomPrice = minPrice + (maxPrice - minPrice) * random.nextDouble();
+			randomIssueIndex = random.nextInt((maxIssues - min) + 1) + min;
+
+			ProductIssue pi = new ProductIssue(products.get(i), issues.get(randomIssueIndex),
+					Math.floor(randomPrice * 100) / 100);
+			productIssueService.addProductIssue(pi);
+		}
+
 	}
 
 	public List<Issue> generateIssues() {
