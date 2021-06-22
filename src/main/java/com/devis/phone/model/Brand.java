@@ -16,14 +16,12 @@ import javax.persistence.Table;
 @Table(name = "Brand")
 
 public class Brand implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id", nullable = false)
 	private Long idBrand;
 
 	@Column(name = "brand_name")

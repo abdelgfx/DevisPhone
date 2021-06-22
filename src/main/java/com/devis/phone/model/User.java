@@ -12,14 +12,12 @@ import javax.persistence.Table;
 @Table(name = "User")
 
 public class User implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id",nullable = false)
 	private Long idUser;
 
 	@Column(name = "first_name")
@@ -31,7 +29,7 @@ public class User implements Serializable {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "password")
+	@Column(name = "password",nullable = false)
 	private String password;
 
 	public User(String firstName, String lastName, String email, String password) {

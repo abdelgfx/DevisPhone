@@ -17,14 +17,12 @@ import javax.persistence.Table;
 @Table(name = "Issue")
 
 public class Issue implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id",nullable = false)
 	private long idIssue;
 
 	@Column(name = "issue_name")

@@ -18,14 +18,12 @@ import javax.persistence.Table;
 @Table(name = "Product")
 
 public class Product implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id",nullable = false)
 	private Long idProduct;
 
 	@Column(name = "image_path")
