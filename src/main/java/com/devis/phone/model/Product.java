@@ -49,6 +49,10 @@ public class Product implements Serializable {
 	public Long getIdProduct() {
 		return idProduct;
 	}
+	
+	public void setIdProduct(Long idProduct) {
+		this.idProduct = idProduct;
+	}
 
 	public String getImagePath() {
 		return imagePath;

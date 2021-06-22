@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,8 +27,8 @@ public class ProductIssueController {
 		return productIssueService.getAllProductIssues();
 	}
 
-	@GetMapping("/product-issues/{idProductIssue}")
-	public Map<String, Object> getProductIssueById(@PathVariable("idProductIssue") Long id) {
+	@GetMapping("/product-issues/{id}")
+	public Map<String, Object> getProductIssueById(@PathVariable("id") Long id) {
 		return productIssueService.getProductIssue(id);
 	}
 
@@ -38,6 +39,12 @@ public class ProductIssueController {
 
 	@PostMapping("/product-issue")
 	public void setProductIssue(@RequestBody ProductIssue productIssue) {
+		productIssueService.addProductIssue(productIssue);
+	}
+
+	@PutMapping("/product-issues/{id}")
+	public void editProductIssue(@PathVariable("id") Long id, @RequestBody ProductIssue productIssue) {
+		productIssue.setProductIssueId(id);
 		productIssueService.addProductIssue(productIssue);
 	}
 }

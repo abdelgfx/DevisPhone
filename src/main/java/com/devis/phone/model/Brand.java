@@ -45,6 +45,10 @@ public class Brand implements Serializable {
 		return idBrand;
 	}
 
+	public void setIdBrand(Long idBrand) {
+		this.idBrand = idBrand;
+	}
+
 	public String getBrandName() {
 		return brandName;
 	}
