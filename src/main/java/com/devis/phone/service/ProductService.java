@@ -1,6 +1,7 @@
 package com.devis.phone.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,11 +25,11 @@ public class ProductService {
 			productRepository.save(product);
 	}
 
-	public Product getProduct(Long id) {
-		return productRepository.getById(id);
+	public Map<String, Object> getProduct(Long id) {
+		return productRepository.getProductById(id);
 	}
 
-	public List<Product> getAllProducts() {
+	public List<Map<String, Object>> getAllProducts() {
 		return productRepository.getAllProducts();
 	}
 

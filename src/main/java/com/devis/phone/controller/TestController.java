@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devis.phone.main.Data;
+import com.devis.phone.data.Data;
 import com.devis.phone.service.BrandService;
 import com.devis.phone.service.IssueService;
 import com.devis.phone.service.ProductIssueService;

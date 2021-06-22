@@ -7,10 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan(basePackages = "com.devis.phone.model") // Scan JPA entities
-@EnableJpaRepositories(basePackages = "com.devis.phone.repository") // Scan JPA repositories
-@ComponentScan(basePackages = { "com.devis.phone.controller", // Scan JPA controllers &
-								"com.devis.phone.service" }) // services
+@EntityScan(basePackages = "com.devis.phone.*") // Scan JPA entities
+@EnableJpaRepositories(basePackages = "com.devis.phone.*") // Scan JPA repositories
+@ComponentScan(basePackages = { "com.devis.phone.*" }) // Scan JPA controllers & services
 
 public class DevisPhoneApp {
 

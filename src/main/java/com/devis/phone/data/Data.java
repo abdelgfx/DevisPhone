@@ -1,4 +1,4 @@
-package com.devis.phone.main;
+package com.devis.phone.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +35,8 @@ public class Data {
 			ProductService productService, ProductIssueService productIssueService) {
 
 		Random random = new Random();
-		int randomBrandIndex, randomUserIndex, randomIssueIndex;
-		int maxBrands, maxUsers, maxIssues, min = 0;
+		int randomBrandIndex, randomIssueIndex;
+		int maxBrands, maxIssues, min = 0;
 		int numberOfProducts = this.numberOfProducts, productNumber = 1;
 		double randomPrice, minPrice = 449.99, maxPrice = 1129.99;
 
@@ -46,7 +46,6 @@ public class Data {
 		List<Issue> issues = generateIssues();
 
 		maxBrands = brands.size() - 1;
-		maxUsers = users.size() - 1;
 
 		brandService.addAllBrands(brands);
 		userService.addAllUser(users);
@@ -54,12 +53,10 @@ public class Data {
 
 		while (numberOfProducts > 0) {
 			randomBrandIndex = random.nextInt((maxBrands - min) + 1) + min;
-			randomUserIndex = random.nextInt((maxUsers - min) + 1) + min;
 
 			Product p = new Product("https://image-path-" + productNumber + ".com");
 
 			p.setBrand(brands.get(randomBrandIndex));
-			p.setUser(users.get(randomUserIndex));
 			products.add(p);
 
 			numberOfProducts--;

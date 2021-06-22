@@ -24,7 +24,7 @@ public class IssueService {
 	}
 
 	public Issue getIssue(Long id) {
-		return issueRepository.getById(id);
+		return issueRepository.findById(id).get();
 	}
 
 	public List<Issue> getAllIssues() {

@@ -45,7 +45,6 @@ public class ProductIssue implements Serializable {
 
 	public ProductIssue() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Product getProduct() {

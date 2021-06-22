@@ -34,9 +34,6 @@ public class Product implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Brand brand;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private User user;
-
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
 	private Set<ProductIssue> productIssues = new HashSet<>();
 
@@ -67,14 +64,6 @@ public class Product implements Serializable {
 
 	public void setBrand(Brand brand) {
 		this.brand = brand;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public Set<ProductIssue> getProductIssues() {

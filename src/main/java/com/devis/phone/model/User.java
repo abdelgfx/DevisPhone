@@ -1,15 +1,11 @@
 package com.devis.phone.model;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,9 +21,6 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long idUser;
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Product> products;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -52,7 +45,6 @@ public class User implements Serializable {
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getFirstName() {

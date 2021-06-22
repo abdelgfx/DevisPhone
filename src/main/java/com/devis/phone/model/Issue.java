@@ -32,6 +32,15 @@ public class Issue implements Serializable {
 
 	@OneToMany(mappedBy = "issue", cascade = CascadeType.ALL)
 	private Set<ProductIssue> productIssues = new HashSet<>();
+	
+	public Issue(String issueName) {
+		super();
+		this.issueName = issueName;
+	}
+
+	public Issue() {
+		super();
+	}
 
 	public String getIssueName() {
 		return issueName;
@@ -43,16 +52,6 @@ public class Issue implements Serializable {
 
 	public long getIdissue() {
 		return idIssue;
-	}
-
-	public Issue(String issueName) {
-		super();
-		this.issueName = issueName;
-	}
-
-	public Issue() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 }
