@@ -72,5 +72,9 @@ public class ProductIssue implements Serializable {
 	public Long getProductIssueId() {
 		return productIssueId;
 	}
+	
+	public void setProductIssueId(Long productIssueId) {
+		this.productIssueId = productIssueId;
+	}
 
 }

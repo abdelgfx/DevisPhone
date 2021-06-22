@@ -52,4 +52,12 @@ public class Issue implements Serializable {
 		return idIssue;
 	}
 
+	public long getIdIssue() {
+		return idIssue;
+	}
+
+	public void setIdIssue(long idIssue) {
+		this.idIssue = idIssue;
+	}
+	
 }
