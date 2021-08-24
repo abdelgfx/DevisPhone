@@ -54,9 +54,9 @@ public class Data {
 		while (numberOfProducts > 0) {
 			randomBrandIndex = random.nextInt((maxBrands - min) + 1) + min;
 
-			Product p = new Product("https://image-path-" + productNumber + ".com");
+			Product p = new Product("Phone " + productNumber, "https://image-path-" + productNumber + ".com");
 
-			p.setBrand(brands.get(randomBrandIndex));
+			p.setPhoneBrand(brands.get(randomBrandIndex));
 			products.add(p);
 
 			numberOfProducts--;
@@ -98,7 +98,7 @@ public class Data {
 		int brandNumber = 1;
 
 		while (numberOfBrands > 0) {
-			brands.add(new Brand("BRAND-XZ-00" + brandNumber));
+			brands.add(new Brand("BRAND-XZ-00" + brandNumber, "https://brand-path-" + brandNumber + ".com"));
 			numberOfBrands--;
 			brandNumber++;
 		}

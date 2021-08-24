@@ -31,6 +31,14 @@ public class ProductIssueService {
 		return productIssueRepository.getAllProductIssues();
 	}
 
+	public Map<String, Object> getProductIssuePrice(String brandName, String issueName) {
+		return productIssueRepository.getProductIssuePrice(brandName, issueName);
+	}
+	
+	public List<Map<String, Object>> getIssuesByProductId(Long productId) {
+		return productIssueRepository.getIssuesByProductId(productId);
+	}
+
 	public void deleteProductIssue(Long id) {
 		productIssueRepository.deleteById(id);
 	}

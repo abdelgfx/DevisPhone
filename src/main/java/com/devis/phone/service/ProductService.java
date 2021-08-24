@@ -28,9 +28,21 @@ public class ProductService {
 	public Map<String, Object> getProduct(Long id) {
 		return productRepository.getProductById(id);
 	}
+	
+	public String getProductImage(Long id) {
+		return productRepository.getProductImage(id);
+	}
 
 	public List<Map<String, Object>> getAllProducts() {
 		return productRepository.getAllProducts();
+	}
+
+	public List<Map<String, Object>> getProductsByBrandName(String brandName) {
+		return productRepository.getProductsByBrandName(brandName);
+	}
+
+	public List<Map<String, Object>> getProductsByBrandOrPhoneName(String name) {
+		return productRepository.getProductsByBrandOrPhoneName(name);
 	}
 
 	public void deleteProduct(Long id) {

@@ -30,13 +30,17 @@ public class Brand implements Serializable {
 	@OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
 	private List<Product> products;
 
+	@Column(name = "image_path")
+	private String imagePath;
+
 	public Brand() {
 		super();
 	}
 
-	public Brand(String brandName) {
+	public Brand(String brandName, String imagePath) {
 		super();
 		this.brandName = brandName;
+		this.imagePath = imagePath;
 	}
 
 	public Long getIdBrand() {
@@ -53,5 +57,13 @@ public class Brand implements Serializable {
 
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import com.devis.phone.service.ProductIssueService;
 
 @RestController
 @RequestMapping("/api/v1/")
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class ProductIssueController {
 	@Autowired
@@ -30,6 +32,17 @@ public class ProductIssueController {
 	@GetMapping("/product-issues/{id}")
 	public Map<String, Object> getProductIssueById(@PathVariable("id") Long id) {
 		return productIssueService.getProductIssue(id);
+	}
+
+	@GetMapping("/product-issue-price")
+	public Map<String, Object> getProductIssuePrice(@RequestBody Map<String, String> brandIssueName) {
+		return productIssueService.getProductIssuePrice(brandIssueName.get("brandName"),
+				brandIssueName.get("issueName"));
+	}
+
+	@GetMapping("/product-issues/product/{id}")
+	public List<Map<String, Object>> getIssuesByProductId(@PathVariable("id") Long id) {
+		return productIssueService.getIssuesByProductId(id);
 	}
 
 	@PostMapping("/product-issues")

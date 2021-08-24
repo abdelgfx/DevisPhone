@@ -23,11 +23,14 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id",nullable = false)
+	@Column(name = "id", nullable = false)
 	private Long idProduct;
 
 	@Column(name = "image_path")
 	private String imagePath;
+
+	@Column(name = "phone_name")
+	private String phoneName;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Brand brand;
@@ -35,9 +38,17 @@ public class Product implements Serializable {
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
 	private Set<ProductIssue> productIssues = new HashSet<>();
 
-	public Product(String image) {
+	public Product(String phoneName, String image) {
 		super();
 		this.imagePath = image;
+		this.phoneName = phoneName;
+	}
+
+	public Product(String phoneName, String image, Brand phoneBrand) {
+		super();
+		this.imagePath = image;
+		this.phoneName = phoneName;
+		this.brand = phoneBrand;
 	}
 
 	public Product() {
@@ -47,7 +58,7 @@ public class Product implements Serializable {
 	public Long getIdProduct() {
 		return idProduct;
 	}
-	
+
 	public void setIdProduct(Long idProduct) {
 		this.idProduct = idProduct;
 	}
@@ -60,12 +71,12 @@ public class Product implements Serializable {
 		this.imagePath = imagePath;
 	}
 
-	public Brand getBrand() {
+	public Brand getPhoneBrand() {
 		return brand;
 	}
 
-	public void setBrand(Brand brand) {
-		this.brand = brand;
+	public void setPhoneBrand(Brand phoneBrand) {
+		this.brand = phoneBrand;
 	}
 
 	public Set<ProductIssue> getProductIssues() {
@@ -74,5 +85,13 @@ public class Product implements Serializable {
 
 	public void setProductIssues(Set<ProductIssue> productIssues) {
 		this.productIssues = productIssues;
+	}
+
+	public String getPhoneName() {
+		return phoneName;
+	}
+
+	public void setPhoneName(String phoneName) {
+		this.phoneName = phoneName;
 	}
 }
